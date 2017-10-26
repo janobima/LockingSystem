@@ -1,0 +1,18 @@
+[
+         {
+            "id": 1,
+            "Status": "ON",
+            "Battery": 90,
+            "Movement": true,
+            "Longitude": -72.961302,
+            "Latitude": 41.296486  
+        },
+         {
+            "id": 2,
+            "Status": "OFF",
+            "Battery": 10,
+            "Movement": false,
+            "Longitude": -79.961302,
+            "Latitude": 30.296486  
+        }
+]
