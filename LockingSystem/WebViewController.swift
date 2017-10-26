@@ -17,13 +17,13 @@ class WebViewController: UIViewController {
     @IBOutlet weak var longitude: UILabel!
     @IBOutlet weak var latitude: UILabel!
     
-    struct Lock{
-        let status: String
-        let battery: Int
-        let movement: Bool
-        let longitude: CLLocationDegrees
-        let latitude: CLLocationDegrees
-        
+    struct ServerLock: Decodable{
+        let id: Int
+        let Status: String
+        let Battery: Int
+        let Movement: Bool
+        let Longitude: Double//CLLocationDegrees
+        let Latitude: Double//CLLocationDegrees
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,63 +32,28 @@ class WebViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
     func readJSON()
     {
-        // open url
-        let url = URL(string:"http://api.fixer.io/latest" )
-        // open broswer to get data from url
-        let task = URLSession.shared.dataTask(with: url!)
-        {
-            (data, response, error)in
-            if error != nil
-            {
-                print("error!")
-            }
-            else
-            {
-                // pass data to variable content
-                if let content = data
-                {
-                    do
-                    {
-                        // convert data(content) to an array
-                        let myJSON = try JSONSerialization.jsonObject(with: content, options: .mutableContainers) as AnyObject
-                        print(myJSON)
-                        // convert it to a dictionary
-                        if let rates = myJSON["rates"] as? NSDictionary
-                        {
-                            // index using ID and passing the data to labels
-                            self.status.text = rates["AUD"]! as? String
-                            self.battery.text = rates["AUD"]! as? String
-                            self.movement.text = rates["AUD"]! as? String
-                            self.longitude.text = rates["AUD"]! as? String
-                            self.latitude.text = rates["AUD"]! as? String
-    
-                        }
-                    }
-                    catch
-                    {
-                        print("error")
-                    }
+        guard let url = URL(string:"https://raw.githubusercontent.com/janobima/LockingSystem/master/myJSON.json") else {return}
+        URLSession.shared.dataTask(with: url) {(data,response,err)in
+            guard let data = data else {return}
+            do{
+                let myServerLocks = try
+                    JSONDecoder().decode([ServerLock].self, from: data)
+                
+                DispatchQueue.main.async {
+                    self.status.text = myServerLocks[0].Status
+                     self.battery.text = String(myServerLocks[0].Battery )
+                     self.movement.text = String(myServerLocks[0].Movement)
+                     self.longitude.text = String( myServerLocks[0].Longitude)
+                     self.latitude.text = String(myServerLocks[0].Latitude)
                 }
             }
-        }
-        // Do any additional setup after loading the view.
-        task.resume()
+            catch {
+                print("Error serializing JSON")
+            }
+        }.resume()
+        
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
