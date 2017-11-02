@@ -10,18 +10,23 @@ import UIKit
 import UserNotifications
 import Foundation
 import CoreData
+import Firebase
 
 class StatusViewController: UIViewController{
     
-    var catchedlock: Lock?
-    var myName: String = String()
-    var myPass: String = String()
-    
+    private var catchedlock: Lock?
+
+    private var myName: String = String()
+    private var myPass: String = String()
+    private var passTextField :UITextField?
+
     @IBOutlet weak var lockName: UILabel!
-    
     @IBOutlet weak var controlSwitch: UISwitch!
-    var passTextField :UITextField?
     
+    func setCatchedLock (newLock: Lock)
+    {
+        catchedlock = newLock
+    }
     @IBAction func lockSwitch(_ sender: Any) {
         if (controlSwitch.isOn==false)
         {
@@ -35,6 +40,8 @@ class StatusViewController: UIViewController{
         }
         else {
             controlSwitch.setOn(false, animated: true)
+            print("ok handler: locked \n")
+            //post(status: "Locked");
         }
     }
 
@@ -43,18 +50,14 @@ class StatusViewController: UIViewController{
         passTextField = textField
         passTextField?.isSecureTextEntry = true
     }
+    
     func okHandler(alert: UIAlertAction)
     {
         if(passTextField?.text == myPass)
         {
-            if (controlSwitch.isOn)
-            {
-                controlSwitch.setOn(false, animated: true)
-            }
-            else
-            {
                 controlSwitch.setOn(true, animated: true)
-            }
+                print("ok handler: unlocked \n")
+              //  post(status: "Unlocked");
         }
         else
         {
@@ -64,11 +67,9 @@ class StatusViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         myName = (catchedlock?.name)!
         myPass = (catchedlock?.passcode)!
         lockName.text! = myName
-
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in})
         UNUserNotificationCenter.current().delegate = self as? UNUserNotificationCenterDelegate
     }
@@ -76,6 +77,16 @@ class StatusViewController: UIViewController{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    /*
+    func post(status : String)
+    {
+        let post :[String : AnyObject] = ["Status": status as AnyObject]
+        
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        ref.child("Posts").childByAutoId().setValue(post)
+    }
+    */
     
     /// Showing the Battery Status using the slider
     ///
@@ -158,7 +169,6 @@ class StatusViewController: UIViewController{
         let request = UNNotificationRequest(identifier: "Notification", content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: { error in })
     }
-    
 }
 extension UIViewController
 {

@@ -83,10 +83,6 @@ class ListViewController: UIViewController,UITableViewDelegate , UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "lockCell", for: indexPath)
         let lock = fetcedResultsController.object(at: indexPath)
         cell.textLabel?.text = lock.name!
-        //----------------------------
-       // let newlock = locks[indexPath.row]
-       // cell.configureCell(newlock: lock)
-        //----------------------------
         return cell
     }
     
@@ -137,40 +133,8 @@ class ListViewController: UIViewController,UITableViewDelegate , UITableViewData
     ///   - tableView: UITableView
     ///   - indexPath: index path of the selected cell
     
-   // var myindex: IndexPath = IndexPath()
-   // var myName = "never chagne"
-   // var myPass: String = String()
-   // var selectedcell = -1
-    //var postsSavetoLocal: Array<PostForCell> = []
-
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       /* print("Cell tapped")
-        selectedcell = indexPath.row
-        print("selectedCell\(selectedcell)")
-        
-        performSegue(withIdentifier: "toStatus", sender: nil)
- */
-       /*
-        let indexPath = tableView.indexPathForSelectedRow //optional, to get from any UIButton for example
-        
-        let currentCell = tableView.cellForRow(at: indexPath!)!
-        myName = (currentCell.textLabel?.text)!
-        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier:"maryam") as? StatusViewController
-        self.navigationController?.pushViewController(vc!, animated:true)
-        vc!.myName = myName
-        print(myName)
- */
-        
-        //self.tableView.deselectRow(at: indexPath as IndexPath, animated: true)
-       /* let cell = tableView.dequeueReusableCell(withIdentifier: "lockCell", for: indexPath)
-        myName = (cell.textLabel?.text)!
-        print("-------")
-        print (myName)
-        print("-------")*/
-       // myindex = indexPath
-       // let selctedlock = fetcedResultsController.object(at: indexPath)
-       // var myName = selctedlock.name!
-       // var myPass = selctedlock.passcode!
+     
     }
     /// Preparing for segue to the next view
     ///
@@ -184,27 +148,8 @@ class ListViewController: UIViewController,UITableViewDelegate , UITableViewData
             
             if let indexpath = self.tableView.indexPathForSelectedRow
             {
-                StatusViewController.catchedlock = fetcedResultsController.object(at: indexpath)
+                StatusViewController.setCatchedLock(newLock: fetcedResultsController.object(at: indexpath))
             }
-            /*print("selectedCell\(selectedcell)")
-            //pass the tapped cell data and images to next page (ViewPostDetailViewController)
-            vc.catchCellData = postsSavetoLocal[selectedcell]
-            */
-            
-           /* let vc = segue.destination as! UINavigationController
-            let StatusViewController = vc.topViewController as! StatusViewController
-            StatusViewController.catchedLock = "Maryam please"
-            let selctedlock = fetcedResultsController.object(at: myindex)
-            StatusViewController.catchedlock = selctedlock
-            StatusViewController.myindex = myindex
-            print(myName)
-            print(myPass)
-            print("-----")
-           // var maryam = "my name is maryam"
-            //myName = "change please"
-            
-            StatusViewController.myName = myName
-            StatusViewController.myPass = "myPass"*/
         }
     }
     

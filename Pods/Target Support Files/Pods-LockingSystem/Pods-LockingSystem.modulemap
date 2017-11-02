@@ -1,0 +1,6 @@
+framework module Pods_LockingSystem {
+  umbrella header "Pods-LockingSystem-umbrella.h"
+
+  export *
+  module * { export * }
+}

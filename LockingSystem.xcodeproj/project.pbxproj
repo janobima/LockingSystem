@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C0AFA0EC1B92FF1EED62F11 /* Pods_LockingSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8719548D3BBAB7B37999DF59 /* Pods_LockingSystem.framework */; };
 		5E37EE721FA0ED6C005D31CA /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E37EE711FA0ED6C005D31CA /* WebViewController.swift */; };
 		5E532C611F9F8AB9004F122E /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6A11501F7712AC00B39F21 /* Lock.swift */; };
 		5E6CFEA81F7737D000A87FDA /* greenBattery.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E6CFEA31F7737D000A87FDA /* greenBattery.png */; };
@@ -21,6 +22,7 @@
 		5E7CCC311F6D54690001FD25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E7CCC2F1F6D54690001FD25 /* LaunchScreen.storyboard */; };
 		5E7CCC3C1F6D54690001FD25 /* LockingSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7CCC3B1F6D54690001FD25 /* LockingSystemTests.swift */; };
 		5E7CCC471F6D54690001FD25 /* LockingSystemUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7CCC461F6D54690001FD25 /* LockingSystemUITests.swift */; };
+		5E7E162C1FAAB83F00548F40 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E162B1FAAB83F00548F40 /* GoogleService-Info.plist */; };
 		5EDFE3D81F7165FB00CB99E7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDFE3D71F7165FB00CB99E7 /* MapViewController.swift */; };
 		5EDFE3DA1F71661100CB99E7 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDFE3D91F71661100CB99E7 /* StatusViewController.swift */; };
 		5EDFE3DC1F716DC200CB99E7 /* NewLockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDFE3DB1F716DC200CB99E7 /* NewLockViewController.swift */; };
@@ -45,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		33D1D4F8D1D83212EE56BD87 /* Pods-LockingSystem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockingSystem.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LockingSystem/Pods-LockingSystem.debug.xcconfig"; sourceTree = "<group>"; };
+		3B7D36B44DD11C4EB3D5B250 /* Pods-LockingSystem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockingSystem.release.xcconfig"; path = "Pods/Target Support Files/Pods-LockingSystem/Pods-LockingSystem.release.xcconfig"; sourceTree = "<group>"; };
 		5E37EE711FA0ED6C005D31CA /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		5E6A11501F7712AC00B39F21 /* Lock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
 		5E6CFEA31F7737D000A87FDA /* greenBattery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenBattery.png; sourceTree = "<group>"; };
@@ -65,10 +69,12 @@
 		5E7CCC421F6D54690001FD25 /* LockingSystemUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LockingSystemUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E7CCC461F6D54690001FD25 /* LockingSystemUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockingSystemUITests.swift; sourceTree = "<group>"; };
 		5E7CCC481F6D54690001FD25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E7E162B1FAAB83F00548F40 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5EDFE3D71F7165FB00CB99E7 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		5EDFE3D91F71661100CB99E7 /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 		5EDFE3DB1F716DC200CB99E7 /* NewLockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewLockViewController.swift; sourceTree = "<group>"; };
 		5EDFE3DF1F72A4B100CB99E7 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		8719548D3BBAB7B37999DF59 /* Pods_LockingSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LockingSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C0AFA0EC1B92FF1EED62F11 /* Pods_LockingSystem.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +103,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		473CA91A4B65B36C7AE13F87 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				33D1D4F8D1D83212EE56BD87 /* Pods-LockingSystem.debug.xcconfig */,
+				3B7D36B44DD11C4EB3D5B250 /* Pods-LockingSystem.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		5E6CFEA11F7737B100A87FDA /* images */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +130,8 @@
 				5E7CCC3A1F6D54690001FD25 /* LockingSystemTests */,
 				5E7CCC451F6D54690001FD25 /* LockingSystemUITests */,
 				5E7CCC211F6D54690001FD25 /* Products */,
+				473CA91A4B65B36C7AE13F87 /* Pods */,
+				735B0F274EF42D0C71E90E0F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,6 +156,7 @@
 				5E7CCC2D1F6D54690001FD25 /* Assets.xcassets */,
 				5E7CCC2F1F6D54690001FD25 /* LaunchScreen.storyboard */,
 				5E7CCC321F6D54690001FD25 /* Info.plist */,
+				5E7E162B1FAAB83F00548F40 /* GoogleService-Info.plist */,
 				5E7CCC2A1F6D54690001FD25 /* LockingSystem.xcdatamodeld */,
 			);
 			path = LockingSystem;
@@ -174,6 +193,14 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
+		735B0F274EF42D0C71E90E0F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8719548D3BBAB7B37999DF59 /* Pods_LockingSystem.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -181,9 +208,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5E7CCC4B1F6D54690001FD25 /* Build configuration list for PBXNativeTarget "LockingSystem" */;
 			buildPhases = (
+				25398F68875F89BB4972F4B8 /* [CP] Check Pods Manifest.lock */,
 				5E7CCC1C1F6D54690001FD25 /* Sources */,
 				5E7CCC1D1F6D54690001FD25 /* Frameworks */,
 				5E7CCC1E1F6D54690001FD25 /* Resources */,
+				A0452CB95F791BE20DC7FE03 /* [CP] Embed Pods Frameworks */,
+				21829BCFD71496FA08E6CBA1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -285,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E6CFEAA1F7737D000A87FDA /* redBattery.png in Resources */,
+				5E7E162C1FAAB83F00548F40 /* GoogleService-Info.plist in Resources */,
 				5E7CCC311F6D54690001FD25 /* LaunchScreen.storyboard in Resources */,
 				5E6CFEAB1F7737D000A87FDA /* yellowBattery.png in Resources */,
 				5E7CCC2E1F6D54690001FD25 /* Assets.xcassets in Resources */,
@@ -309,6 +340,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		21829BCFD71496FA08E6CBA1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LockingSystem/Pods-LockingSystem-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		25398F68875F89BB4972F4B8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A0452CB95F791BE20DC7FE03 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LockingSystem/Pods-LockingSystem-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5E7CCC1C1F6D54690001FD25 /* Sources */ = {
@@ -487,12 +566,13 @@
 		};
 		5E7CCC4C1F6D54690001FD25 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33D1D4F8D1D83212EE56BD87 /* Pods-LockingSystem.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6LMUKN77KB;
 				INFOPLIST_FILE = LockingSystem/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = MJ.LockingSystem;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MJ.LockingSystem;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -500,12 +580,13 @@
 		};
 		5E7CCC4D1F6D54690001FD25 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B7D36B44DD11C4EB3D5B250 /* Pods-LockingSystem.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6LMUKN77KB;
 				INFOPLIST_FILE = LockingSystem/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = MJ.LockingSystem;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MJ.LockingSystem;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
