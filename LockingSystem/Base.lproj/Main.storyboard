@@ -176,6 +176,14 @@
                                     <action selector="changeDataLock:" destination="PdK-0P-9YE" eventType="touchUpInside" id="qrn-ib-6dy"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="80Z-gt-ODS">
+                                <rect key="frame" x="51" y="588" width="277" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Write to a web server/ Unlock the device"/>
+                                <connections>
+                                    <action selector="changeDataUnlock:" destination="PdK-0P-9YE" eventType="touchUpInside" id="fOl-Aq-Xhz"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="irk-EQ-ADy">
                                 <rect key="frame" x="116" y="495" width="162" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -191,14 +199,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="80Z-gt-ODS">
-                                <rect key="frame" x="51" y="588" width="277" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oef-vO-vG5">
+                                <rect key="frame" x="61" y="83" width="45" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Write to a web server/ Unlock the device"/>
-                                <connections>
-                                    <action selector="changeDataUnlock:" destination="PdK-0P-9YE" eventType="touchUpInside" id="fOl-Aq-Xhz"/>
-                                </connections>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfP-FB-F6Q">
+                                <rect key="frame" x="213" y="69" width="92" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -207,6 +221,7 @@
                         <outlet property="latitude" destination="rx2-8i-5xk" id="RcA-mK-ZpJ"/>
                         <outlet property="longitude" destination="eml-Qu-OVk" id="7I4-Yn-Iia"/>
                         <outlet property="movement" destination="CxG-fq-qRZ" id="cpm-Vb-IAK"/>
+                        <outlet property="name" destination="OfP-FB-F6Q" id="tuW-zJ-RMs"/>
                         <outlet property="status" destination="6YM-ev-RYs" id="dc6-2H-W8F"/>
                     </connections>
                 </viewController>
@@ -308,7 +323,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Web Server"/>
                                 <connections>
-                                    <segue destination="PdK-0P-9YE" kind="show" id="bc4-bM-kAC"/>
+                                    <segue destination="PdK-0P-9YE" kind="show" identifier="toWeb" id="bc4-bM-kAC"/>
                                 </connections>
                             </button>
                         </subviews>

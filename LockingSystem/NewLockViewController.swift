@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 class NewLockViewController: UIViewController ,UITextFieldDelegate{
     
@@ -90,6 +91,19 @@ class NewLockViewController: UIViewController ,UITextFieldDelegate{
             }catch {
                 print("Error occurred during the save")
             }
+            // --------------------------------------------------------------
+            // set the firebase reference
+            var ref: DatabaseReference!
+            ref = Database.database().reference()
+            // create a new post and write it to firebase
+            let name = nameField.text!
+            let status = "Unlocked"
+            let battery = 100
+            let movement = false
+            let longitude = -72.9613023
+            let latitude = 41.296486
+            let post :[String : AnyObject] = ["Name" : name as AnyObject, "Status": status as AnyObject, "Battery":battery  as AnyObject,"Movement": movement as AnyObject,"Longitude": longitude as AnyObject, "Latitude":latitude as AnyObject ]
+            ref.child("Posts").child(nameField.text!).setValue(post)
         }
     }
     

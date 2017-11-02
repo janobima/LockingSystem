@@ -8,6 +8,7 @@
 import UIKit
 import Foundation
 import CoreData
+import Firebase
 
 class ListViewController: UIViewController,UITableViewDelegate , UITableViewDataSource,NSFetchedResultsControllerDelegate{
     //--------------------------------------------------
@@ -98,6 +99,13 @@ class ListViewController: UIViewController,UITableViewDelegate , UITableViewData
         {
             let context = fetcedResultsController.managedObjectContext
             let myCurrentLock = fetcedResultsController.object(at: indexPath)
+            // -------------------------------------------------------------------
+            // delete the data from firebase
+            var ref: DatabaseReference!
+            ref = Database.database().reference()
+            ref.child("Posts/"+myCurrentLock.name!).removeValue()
+            // -------------------------------------------------------------------
+            // Delete the data from core data
             context.delete(myCurrentLock)
             do {
                 try context.save()
@@ -112,6 +120,7 @@ class ListViewController: UIViewController,UITableViewDelegate , UITableViewData
                 print("\(fetchError)")
             }
             self.tableView.reloadData()
+
         }
     }
     

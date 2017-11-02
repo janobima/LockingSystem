@@ -77,17 +77,7 @@ class StatusViewController: UIViewController{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    /*
-    func post(status : String)
-    {
-        let post :[String : AnyObject] = ["Status": status as AnyObject]
-        
-        var ref: DatabaseReference!
-        ref = Database.database().reference()
-        ref.child("Posts").childByAutoId().setValue(post)
-    }
-    */
-    
+
     /// Showing the Battery Status using the slider
     ///
     /// - Parameter sender: the slider
@@ -169,6 +159,14 @@ class StatusViewController: UIViewController{
         let request = UNNotificationRequest(identifier: "Notification", content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: { error in })
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toWeb"{
+            let webvc = segue.destination as! WebViewController
+            webvc.setLockName(name:myName )
+        }
+    }
+    
 }
 extension UIViewController
 {
