@@ -35,13 +35,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ig0-sC-kE9">
-                                <rect key="frame" x="147" y="548" width="103" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFd-Mx-SgG">
+                                <rect key="frame" x="147" y="599" width="103" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Get Started"/>
+                                <state key="normal" title="Skip"/>
                                 <connections>
-                                    <segue destination="KeH-qv-ef0" kind="show" id="cPU-7U-0dn"/>
+                                    <segue destination="KeH-qv-ef0" kind="show" id="5kQ-G8-l79"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ig0-sC-kE9">
+                                <rect key="frame" x="147" y="546" width="103" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <segue destination="4Xl-wx-vmb" kind="show" id="8Ms-ZF-Orw"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -352,6 +361,87 @@
             </objects>
             <point key="canvasLocation" x="1380" y="-602.24887556221893"/>
         </scene>
+        <!--Signup View Controller-->
+        <scene sceneID="0ZM-Vg-7oV">
+            <objects>
+                <viewController id="4Xl-wx-vmb" customClass="SignupViewController" customModule="LockingSystem" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="x6m-jg-Ik2"/>
+                        <viewControllerLayoutGuide type="bottom" id="kFY-mK-Owm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="14A-N4-x9Y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Fe-za-NJn">
+                                <rect key="frame" x="35" y="240" width="295" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wLB-mz-uzl">
+                                <rect key="frame" x="35" y="360" width="295" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jpO-78-iLp">
+                                <rect key="frame" x="53" y="198" width="50" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dC4-mg-aiO">
+                                <rect key="frame" x="53" y="342" width="83" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjM-0T-IaX">
+                                <rect key="frame" x="129" y="573" width="107" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="login:" destination="4Xl-wx-vmb" eventType="touchUpInside" id="PHL-UT-Wtn"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QvI-lV-rcW">
+                                <rect key="frame" x="53" y="86" width="277" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Login"/>
+                                    <segment title="Sign up"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="vZs-Ul-gZu" appends="YES" id="xMc-DD-Dy9"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="emailField" destination="0Fe-za-NJn" id="keA-kC-E7V"/>
+                        <outlet property="passwordField" destination="wLB-mz-uzl" id="nNU-Wy-9NB"/>
+                        <outlet property="segmentControl" destination="QvI-lV-rcW" id="dJD-i1-V7P"/>
+                        <segue destination="KeH-qv-ef0" kind="show" identifier="fromLoginToList" id="JCO-tT-Q9g"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toHome2" id="gp5-j3-g6E"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wSl-WR-8oI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="vZs-Ul-gZu">
+                    <connections>
+                        <outlet property="delegate" destination="14A-N4-x9Y" id="ZhG-jK-Cbz"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-1132" y="169.56521739130437"/>
+        </scene>
         <!--NewLock-->
         <scene sceneID="aiu-t0-jhG">
             <objects>
@@ -500,6 +590,14 @@
                                     <segue destination="U0m-9E-IuI" kind="show" id="b3a-lp-N37"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oMP-og-DfX">
+                                <rect key="frame" x="287" y="629" width="52" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log out"/>
+                                <connections>
+                                    <action selector="logout:" destination="KeH-qv-ef0" eventType="touchUpInside" id="rPY-rD-zBK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -509,6 +607,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="0dz-Ul-QbA" id="yh6-6g-fL6"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="progSegue" id="eF3-SK-FVU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KZE-lb-Xvz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -545,6 +644,8 @@
         <image name="greenBattery.png" width="300" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gvS-lD-4fp"/>
+        <segue reference="b3a-lp-N37"/>
+        <segue reference="hef-lw-dtN"/>
+        <segue reference="eF3-SK-FVU"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,6 +9,7 @@ import UIKit
 import Foundation
 import CoreData
 import Firebase
+import FirebaseAuth
 
 class ListViewController: UIViewController,UITableViewDelegate , UITableViewDataSource,NSFetchedResultsControllerDelegate{
     //--------------------------------------------------
@@ -17,6 +18,17 @@ class ListViewController: UIViewController,UITableViewDelegate , UITableViewData
 
     @IBOutlet weak var tableView: UITableView!
     @IBAction func newLock(_ sender: Any) {
+    }
+    
+    @IBAction func logout(_ sender: Any) {
+        print("You have logged out successfully!")
+         let firebaseAuth = Auth.auth()
+         do {
+         try firebaseAuth.signOut()
+         } catch let signOutError as NSError {
+         print ("Error signing out: %@", signOutError)
+         }
+        performSegue(withIdentifier: "progSegue", sender: nil)
     }
     
     override func viewDidLoad() {
