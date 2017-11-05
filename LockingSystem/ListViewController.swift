@@ -7,13 +7,17 @@
 //
 import UIKit
 import Foundation
-import CoreData
+//import CoreData
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 
-class ListViewController: UIViewController,UITableViewDelegate , UITableViewDataSource,NSFetchedResultsControllerDelegate{
+class ListViewController: UIViewController,UITableViewDelegate , UITableViewDataSource/*,NSFetchedResultsControllerDelegate*/{
     //--------------------------------------------------
-    var locks: [Lock] = []
+    //var locks: [Lock] = []
+    var locksarr: [String] = []
+    var ref: DatabaseReference!
+    var databaseHandle: DatabaseHandle!
     //--------------------------------------------------
 
     @IBOutlet weak var tableView: UITableView!
@@ -35,14 +39,25 @@ class ListViewController: UIViewController,UITableViewDelegate , UITableViewData
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        do {
+       /* do {
             // when view loads, run the fetch (query)
             try self.fetcedResultsController.performFetch()
         } catch {
             let fetchError = error as NSError
             print("Unable to Perform Fetch Request")
             print("\(fetchError)")
-        }
+        }*/
+        ref = Database.database().reference()
+        databaseHandle = ref?.child("Posts").observe(.childAdded , with: { (snapshot) in
+            // add snapshots to the array
+            // Retrieve posts and listen for changes in a post in Firebase
+            let post = snapshot.value as? NSDictionary
+            let name = post?["Name"] as? String
+           // self.locksarr.append(data!)
+             self.locksarr.insert(name! , at: 0)
+            self.tableView.reloadData()
+        })
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -65,27 +80,29 @@ class ListViewController: UIViewController,UITableViewDelegate , UITableViewData
     /// - Returns: integer which is the number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-       if let locks = fetcedResultsController.fetchedObjects {
+      /* if let locks = fetcedResultsController.fetchedObjects {
             return locks.count
         } else {
             return 0
-        }
+        }*/
+        return locksarr.count
     }
     
+    /*
     /// Once CoreData is changed, update the tableview
     ///
     /// - Parameter controller: NSFetchedResultsController
     private func controllerWillChangeContent(_ controller: NSFetchedResultsController<Lock>) {
         tableView.beginUpdates()
     }
-    
+ 
     /// Once the data is done updating, stop updating the table view
     ///
     /// - Parameter controller: NSFetchedResultsController
     private func controllerDidChangeContent(_ controller: NSFetchedResultsController<Lock>) {
         tableView.endUpdates()
     }
-    
+ */
     /// populate the table view with core data
     ///
     /// - Parameters:
@@ -94,8 +111,9 @@ class ListViewController: UIViewController,UITableViewDelegate , UITableViewData
     /// - Returns: table cell
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "lockCell", for: indexPath)
-        let lock = fetcedResultsController.object(at: indexPath)
-        cell.textLabel?.text = lock.name!
+        //let lock = fetcedResultsController.object(at: indexPath)
+        //cell.textLabel?.text = lock.name!
+        cell.textLabel?.text =  locksarr[indexPath.row]
         return cell
     }
     
@@ -109,16 +127,20 @@ class ListViewController: UIViewController,UITableViewDelegate , UITableViewData
         
         if editingStyle == UITableViewCellEditingStyle.delete
         {
-            let context = fetcedResultsController.managedObjectContext
-            let myCurrentLock = fetcedResultsController.object(at: indexPath)
+           // let context = fetcedResultsController.managedObjectContext
+            //let myCurrentLock = fetcedResultsController.object(at: indexPath)
+            let myCurrentLock = locksarr[0]
+
             // -------------------------------------------------------------------
             // delete the data from firebase
             var ref: DatabaseReference!
             ref = Database.database().reference()
-            ref.child("Posts/"+myCurrentLock.name!).removeValue()
+            //ref.child("Posts/"+myCurrentLock.name!).removeValue()
+            ref.child("Posts/"+myCurrentLock).removeValue()
+
             // -------------------------------------------------------------------
             // Delete the data from core data
-            context.delete(myCurrentLock)
+           /* context.delete(myCurrentLock)
             do {
                 try context.save()
             } catch {
@@ -130,12 +152,13 @@ class ListViewController: UIViewController,UITableViewDelegate , UITableViewData
                 let fetchError = error as NSError
                 print("Unable to Perform Fetch Request")
                 print("\(fetchError)")
-            }
+            }*/
             self.tableView.reloadData()
 
         }
     }
     
+    /*
     // Fetch the data in the coredata --------------------------------
      fileprivate lazy var fetcedResultsController: NSFetchedResultsController<Lock> = {
      // Initiate the query
@@ -147,7 +170,7 @@ class ListViewController: UIViewController,UITableViewDelegate , UITableViewData
      fetchedResultsController.delegate = self
      return fetchedResultsController
      }()
-   
+   */
     /// Adding the selection functionality to the table view
     ///
     /// - Parameters:
@@ -169,7 +192,8 @@ class ListViewController: UIViewController,UITableViewDelegate , UITableViewData
             
             if let indexpath = self.tableView.indexPathForSelectedRow
             {
-                StatusViewController.setCatchedLock(newLock: fetcedResultsController.object(at: indexpath))
+               // StatusViewController.setCatchedLock(newLock: fetcedResultsController.object(at: indexpath))
+                StatusViewController.setCatchedLock(newLock: locksarr[0])
             }
         }
     }

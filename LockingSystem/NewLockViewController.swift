@@ -70,7 +70,7 @@ class NewLockViewController: UIViewController ,UITextFieldDelegate{
         dismissKeyboard()
         return true
     }
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         nameField.resignFirstResponder()
         pass1Field.resignFirstResponder()
         pass2Field.resignFirstResponder()

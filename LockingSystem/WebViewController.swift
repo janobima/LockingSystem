@@ -39,7 +39,7 @@ class WebViewController: UIViewController {
         ref = Database.database().reference()
         
         // Retrieve posts and listen for changes in a post in Firebase
-        let handle = ref.child("Posts").child(lockName).observeSingleEvent(of: .value, with: { (snapshot) in
+         ref.child("Posts").child(lockName).observeSingleEvent(of: .value, with: { (snapshot) in
             let post = snapshot.value as? NSDictionary
             
             self.name.text = post?["Name"] as? String ?? ""
@@ -58,7 +58,7 @@ class WebViewController: UIViewController {
         // update a field in on post in firebase
         let newStatus = "unlock"
         ref.child("Posts/"+lockName+"/Status").setValue(newStatus)
-        readData(AnyObject)
+        readData(AnyObject.self)
         
     }
     @IBAction func changeDataLock(_ sender: Any) {
@@ -68,7 +68,7 @@ class WebViewController: UIViewController {
          // update a field in on post in firebase
          let newStatus = "locked"
          ref.child("Posts/"+lockName+"/Status").setValue(newStatus)
-        readData(AnyObject)
+        readData(AnyObject.self)
     }
 
 }

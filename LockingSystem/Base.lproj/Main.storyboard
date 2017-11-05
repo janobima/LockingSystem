@@ -49,9 +49,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Login"/>
-                                <connections>
-                                    <segue destination="4Xl-wx-vmb" kind="show" id="8Ms-ZF-Orw"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -236,7 +233,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TzM-eb-huo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1380" y="169.56521739130437"/>
+            <point key="canvasLocation" x="1719.2" y="169.56521739130437"/>
         </scene>
         <!--LockStatus-->
         <scene sceneID="SJw-xe-6Qa">
@@ -425,6 +422,7 @@
                             <outletCollection property="gestureRecognizers" destination="vZs-Ul-gZu" appends="YES" id="xMc-DD-Dy9"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" id="H4T-bj-OFD"/>
                     <connections>
                         <outlet property="emailField" destination="0Fe-za-NJn" id="keA-kC-E7V"/>
                         <outlet property="passwordField" destination="wLB-mz-uzl" id="nNU-Wy-9NB"/>
@@ -434,13 +432,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSl-WR-8oI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="vZs-Ul-gZu">
-                    <connections>
-                        <outlet property="delegate" destination="14A-N4-x9Y" id="ZhG-jK-Cbz"/>
-                    </connections>
-                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="vZs-Ul-gZu"/>
             </objects>
-            <point key="canvasLocation" x="-1132" y="169.56521739130437"/>
+            <point key="canvasLocation" x="-1132" y="170"/>
         </scene>
         <!--NewLock-->
         <scene sceneID="aiu-t0-jhG">
@@ -535,7 +529,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-327.19999999999999" y="170.46476761619192"/>
+            <point key="canvasLocation" x="12" y="170.46476761619192"/>
         </scene>
         <!--LocksList-->
         <scene sceneID="aRa-kS-a20">
@@ -644,8 +638,7 @@
         <image name="greenBattery.png" width="300" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="b3a-lp-N37"/>
-        <segue reference="hef-lw-dtN"/>
-        <segue reference="eF3-SK-FVU"/>
+        <segue reference="JCO-tT-Q9g"/>
+        <segue reference="gp5-j3-g6E"/>
     </inferredMetricsTieBreakers>
 </document>

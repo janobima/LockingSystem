@@ -14,44 +14,53 @@ import Firebase
 
 class StatusViewController: UIViewController{
     
-    private var catchedlock: Lock?
+    //private var catchedlock: Lock?
+    private var catchedlock: String?
 
-    private var myName: String = String()
-    private var myPass: String = String()
-    private var passTextField :UITextField?
+ //   private var myName: String = String()
+//    private var myPass: String = String()
+ //   private var passTextField :UITextField?
 
     @IBOutlet weak var lockName: UILabel!
     @IBOutlet weak var controlSwitch: UISwitch!
     
-    func setCatchedLock (newLock: Lock)
+   /* func setCatchedLock (newLock: Lock)
+    {
+        catchedlock = newLock
+    }*/
+    
+    func setCatchedLock (newLock: String)
     {
         catchedlock = newLock
     }
+    
     @IBAction func lockSwitch(_ sender: Any) {
         if (controlSwitch.isOn==false)
         {
-            let alert = UIAlertController(title: "Enter password to unlock", message: nil, preferredStyle: .alert)
+          /*  let alert = UIAlertController(title: "Enter password to unlock", message: nil, preferredStyle: .alert)
             alert.addTextField(configurationHandler: passTextField)
             let ok = UIAlertAction(title: "OK", style: .default, handler: self.okHandler)
             let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alert.addAction(ok)
             alert.addAction(cancel)
-            self.present(alert,animated:true)
+            self.present(alert,animated:true)*/
+            controlSwitch.setOn(true, animated: true)
+
         }
         else {
             controlSwitch.setOn(false, animated: true)
-            print("ok handler: locked \n")
+           // print("ok handler: locked \n")
             //post(status: "Locked");
         }
     }
 
-    func passTextField(textField: UITextField)
+   /* func passTextField(textField: UITextField)
     {
         passTextField = textField
         passTextField?.isSecureTextEntry = true
-    }
+    }*/
     
-    func okHandler(alert: UIAlertAction)
+   /* func okHandler(alert: UIAlertAction)
     {
         if(passTextField?.text == myPass)
         {
@@ -63,15 +72,17 @@ class StatusViewController: UIViewController{
         {
             passTextField?.text = "Wrong passcode, please re-enter"
         }
-    }
+    }*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        myName = (catchedlock?.name)!
-        myPass = (catchedlock?.passcode)!
-        lockName.text! = myName
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in})
-        UNUserNotificationCenter.current().delegate = self as? UNUserNotificationCenterDelegate
+     //   myName = (catchedlock?.name)!
+     //   myPass = (catchedlock?.passcode)!
+      //  lockName.text! = myName
+        lockName.text! = catchedlock!
+
+      /*  UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in})
+        UNUserNotificationCenter.current().delegate = self as? UNUserNotificationCenterDelegate*/
     }
     
     override func didReceiveMemoryWarning() {
@@ -163,7 +174,9 @@ class StatusViewController: UIViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toWeb"{
             let webvc = segue.destination as! WebViewController
-            webvc.setLockName(name:myName )
+            //webvc.setLockName(name:myName )
+            webvc.setLockName(name: catchedlock! )
+
         }
     }
     
