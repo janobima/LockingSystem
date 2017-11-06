@@ -1,7 +1,0 @@
-[
-    {
-    "id":1,"Status":"LOCKED","Battery": 90, "Movement": true, "Longitude": -72.9613023, "Latitude": 41.296486},
-    
-    {"id":2,"Status":"UNLOCKED","Battery": 10, "Movement": false, "Longitude": -90.9613023, "Latitude": 20.296486}
-
-]
