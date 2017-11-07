@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1C0AFA0EC1B92FF1EED62F11 /* Pods_LockingSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8719548D3BBAB7B37999DF59 /* Pods_LockingSystem.framework */; };
 		5E37EE721FA0ED6C005D31CA /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E37EE711FA0ED6C005D31CA /* WebViewController.swift */; };
-		5E532C611F9F8AB9004F122E /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6A11501F7712AC00B39F21 /* Lock.swift */; };
 		5E6CFEA81F7737D000A87FDA /* greenBattery.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E6CFEA31F7737D000A87FDA /* greenBattery.png */; };
 		5E6CFEA91F7737D000A87FDA /* orangeBattery.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E6CFEA41F7737D000A87FDA /* orangeBattery.png */; };
 		5E6CFEAA1F7737D000A87FDA /* redBattery.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E6CFEA51F7737D000A87FDA /* redBattery.png */; };
@@ -17,13 +16,13 @@
 		5E7CCC241F6D54690001FD25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7CCC231F6D54690001FD25 /* AppDelegate.swift */; };
 		5E7CCC261F6D54690001FD25 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7CCC251F6D54690001FD25 /* HomeViewController.swift */; };
 		5E7CCC291F6D54690001FD25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E7CCC271F6D54690001FD25 /* Main.storyboard */; };
-		5E7CCC2C1F6D54690001FD25 /* LockingSystem.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5E7CCC2A1F6D54690001FD25 /* LockingSystem.xcdatamodeld */; };
 		5E7CCC2E1F6D54690001FD25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E7CCC2D1F6D54690001FD25 /* Assets.xcassets */; };
 		5E7CCC311F6D54690001FD25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E7CCC2F1F6D54690001FD25 /* LaunchScreen.storyboard */; };
 		5E7CCC3C1F6D54690001FD25 /* LockingSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7CCC3B1F6D54690001FD25 /* LockingSystemTests.swift */; };
 		5E7CCC471F6D54690001FD25 /* LockingSystemUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7CCC461F6D54690001FD25 /* LockingSystemUITests.swift */; };
 		5E7E162C1FAAB83F00548F40 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E162B1FAAB83F00548F40 /* GoogleService-Info.plist */; };
 		5E8524B11FABDA1B000E2005 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8524B01FABDA1B000E2005 /* SignupViewController.swift */; };
+		5E8524B41FAEAC08000E2005 /* LockingSystem.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5E8524B21FAEAC08000E2005 /* LockingSystem.xcdatamodeld */; };
 		5EDFE3D81F7165FB00CB99E7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDFE3D71F7165FB00CB99E7 /* MapViewController.swift */; };
 		5EDFE3DA1F71661100CB99E7 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDFE3D91F71661100CB99E7 /* StatusViewController.swift */; };
 		5EDFE3DC1F716DC200CB99E7 /* NewLockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDFE3DB1F716DC200CB99E7 /* NewLockViewController.swift */; };
@@ -51,7 +50,6 @@
 		33D1D4F8D1D83212EE56BD87 /* Pods-LockingSystem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockingSystem.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LockingSystem/Pods-LockingSystem.debug.xcconfig"; sourceTree = "<group>"; };
 		3B7D36B44DD11C4EB3D5B250 /* Pods-LockingSystem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockingSystem.release.xcconfig"; path = "Pods/Target Support Files/Pods-LockingSystem/Pods-LockingSystem.release.xcconfig"; sourceTree = "<group>"; };
 		5E37EE711FA0ED6C005D31CA /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
-		5E6A11501F7712AC00B39F21 /* Lock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
 		5E6CFEA31F7737D000A87FDA /* greenBattery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenBattery.png; sourceTree = "<group>"; };
 		5E6CFEA41F7737D000A87FDA /* orangeBattery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orangeBattery.png; sourceTree = "<group>"; };
 		5E6CFEA51F7737D000A87FDA /* redBattery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redBattery.png; sourceTree = "<group>"; };
@@ -60,7 +58,6 @@
 		5E7CCC231F6D54690001FD25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E7CCC251F6D54690001FD25 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5E7CCC281F6D54690001FD25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5E7CCC2B1F6D54690001FD25 /* LockingSystem.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LockingSystem.xcdatamodel; sourceTree = "<group>"; };
 		5E7CCC2D1F6D54690001FD25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E7CCC301F6D54690001FD25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E7CCC321F6D54690001FD25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,6 +69,7 @@
 		5E7CCC481F6D54690001FD25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E7E162B1FAAB83F00548F40 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5E8524B01FABDA1B000E2005 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		5E8524B31FAEAC08000E2005 /* LockingSystem.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LockingSystem.xcdatamodel; sourceTree = "<group>"; };
 		5EDFE3D71F7165FB00CB99E7 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		5EDFE3D91F71661100CB99E7 /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 		5EDFE3DB1F716DC200CB99E7 /* NewLockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewLockViewController.swift; sourceTree = "<group>"; };
@@ -153,13 +151,12 @@
 				5E6CFEA11F7737B100A87FDA /* images */,
 				5EDFE3E51F7348B400CB99E7 /* ViewControllers */,
 				5E7CCC231F6D54690001FD25 /* AppDelegate.swift */,
-				5E6A11501F7712AC00B39F21 /* Lock.swift */,
 				5E7CCC271F6D54690001FD25 /* Main.storyboard */,
 				5E7CCC2D1F6D54690001FD25 /* Assets.xcassets */,
 				5E7CCC2F1F6D54690001FD25 /* LaunchScreen.storyboard */,
+				5E8524B21FAEAC08000E2005 /* LockingSystem.xcdatamodeld */,
 				5E7CCC321F6D54690001FD25 /* Info.plist */,
 				5E7E162B1FAAB83F00548F40 /* GoogleService-Info.plist */,
-				5E7CCC2A1F6D54690001FD25 /* LockingSystem.xcdatamodeld */,
 			);
 			path = LockingSystem;
 			sourceTree = "<group>";
@@ -400,15 +397,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E532C611F9F8AB9004F122E /* Lock.swift in Sources */,
 				5E37EE721FA0ED6C005D31CA /* WebViewController.swift in Sources */,
 				5E8524B11FABDA1B000E2005 /* SignupViewController.swift in Sources */,
 				5E7CCC261F6D54690001FD25 /* HomeViewController.swift in Sources */,
+				5E8524B41FAEAC08000E2005 /* LockingSystem.xcdatamodeld in Sources */,
 				5E7CCC241F6D54690001FD25 /* AppDelegate.swift in Sources */,
 				5EDFE3D81F7165FB00CB99E7 /* MapViewController.swift in Sources */,
 				5EDFE3DC1F716DC200CB99E7 /* NewLockViewController.swift in Sources */,
 				5EDFE3DA1F71661100CB99E7 /* StatusViewController.swift in Sources */,
-				5E7CCC2C1F6D54690001FD25 /* LockingSystem.xcdatamodeld in Sources */,
 				5EDFE3E01F72A4B100CB99E7 /* ListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -705,12 +701,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		5E7CCC2A1F6D54690001FD25 /* LockingSystem.xcdatamodeld */ = {
+		5E8524B21FAEAC08000E2005 /* LockingSystem.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				5E7CCC2B1F6D54690001FD25 /* LockingSystem.xcdatamodel */,
+				5E8524B31FAEAC08000E2005 /* LockingSystem.xcdatamodel */,
 			);
-			currentVersion = 5E7CCC2B1F6D54690001FD25 /* LockingSystem.xcdatamodel */;
+			currentVersion = 5E8524B31FAEAC08000E2005 /* LockingSystem.xcdatamodel */;
 			path = LockingSystem.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

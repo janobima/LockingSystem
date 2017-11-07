@@ -11,9 +11,15 @@ import Firebase
 import FirebaseAuth
 
 class SignupViewController: UIViewController {
-
+    
+    @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    
+    /// This function will be triggered once the login button is clicked,
+    /// It will handle the user authentication to Firebase using email & password.
+    ///
+    /// - Parameter sender: object from any type
     @IBAction func login(_ sender: Any) {
         if emailField.text != "" && passwordField.text != "" {
             if segmentControl.selectedSegmentIndex == 0
@@ -65,11 +71,8 @@ class SignupViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var segmentControl: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
-       // let userEmail = Auth.auth().currentUser?.email
-        
     }
 
 }

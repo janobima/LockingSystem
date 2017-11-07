@@ -20,6 +20,9 @@ class WebViewController: UIViewController {
     @IBOutlet weak var latitude: UILabel!
     private var lockName: String = String()
 
+    /// Setter function to set the name of the lock.
+    ///
+    /// - Parameter name: the name of the lock that is being passed to this view.
     func setLockName (name: String)
     {
         lockName = name
@@ -33,6 +36,10 @@ class WebViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    /// This function will read the data for the corresponding lock from Firebase
+    /// It will display the data in the empty labels.
+    ///
+    /// - Parameter sender: any object
     @IBAction func readData(_ sender: Any) {
 
         var ref: DatabaseReference!
@@ -41,7 +48,6 @@ class WebViewController: UIViewController {
         // Retrieve posts and listen for changes in a post in Firebase
          ref.child("Posts").child(lockName).observeSingleEvent(of: .value, with: { (snapshot) in
             let post = snapshot.value as? NSDictionary
-            
             self.name.text = post?["Name"] as? String ?? ""
             self.status.text = post?["Status"] as? String ?? ""
             self.battery.text = String(describing: post?["Battery"] as? Int ?? 100)
@@ -51,20 +57,26 @@ class WebViewController: UIViewController {
         })
     }
 
+    /// This function will change one of the fields in Firebase
+    /// Set the status to unlocked
+    ///
+    /// - Parameter sender: any object
     @IBAction func changeDataUnlock(_ sender: Any) {
         var ref: DatabaseReference!
         ref = Database.database().reference()
-        
         // update a field in on post in firebase
         let newStatus = "unlock"
         ref.child("Posts/"+lockName+"/Status").setValue(newStatus)
         readData(AnyObject.self)
-        
     }
+    
+    /// This function will change one of the fields in Firebase
+    /// Set the status to locked
+    ///
+    /// - Parameter sender: any object
     @IBAction func changeDataLock(_ sender: Any) {
         var ref: DatabaseReference!
         ref = Database.database().reference()
-        
          // update a field in on post in firebase
          let newStatus = "locked"
          ref.child("Posts/"+lockName+"/Status").setValue(newStatus)

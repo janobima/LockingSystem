@@ -49,6 +49,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <segue destination="4Xl-wx-vmb" kind="show" id="ASo-xh-eUl"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -56,7 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1132" y="-602.24887556221893"/>
+            <point key="canvasLocation" x="-1806" y="-602"/>
         </scene>
         <!--Map-->
         <scene sceneID="7Wx-Db-jxK">
@@ -175,25 +178,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7EC-Wq-Cz8">
-                                <rect key="frame" x="66" y="550" width="262" height="30"/>
+                                <rect key="frame" x="64" y="550" width="267" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Write to a web server/ Lock the device"/>
+                                <state key="normal" title="Edit data on Firebase (Lock the device)"/>
                                 <connections>
                                     <action selector="changeDataLock:" destination="PdK-0P-9YE" eventType="touchUpInside" id="qrn-ib-6dy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="80Z-gt-ODS">
-                                <rect key="frame" x="51" y="588" width="277" height="30"/>
+                                <rect key="frame" x="48" y="588" width="283" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Write to a web server/ Unlock the device"/>
+                                <state key="normal" title="Edit data on Firebase (Unlock the device)"/>
                                 <connections>
                                     <action selector="changeDataUnlock:" destination="PdK-0P-9YE" eventType="touchUpInside" id="fOl-Aq-Xhz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="irk-EQ-ADy">
-                                <rect key="frame" x="116" y="495" width="162" height="30"/>
+                                <rect key="frame" x="131" y="495" width="133" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Read from a web server"/>
+                                <state key="normal" title="Read from Firebase"/>
                                 <connections>
                                     <action selector="readData:" destination="PdK-0P-9YE" eventType="touchUpInside" id="evJ-he-UcP"/>
                                 </connections>
@@ -233,7 +236,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TzM-eb-huo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1719.2" y="169.56521739130437"/>
+            <point key="canvasLocation" x="1418" y="215"/>
         </scene>
         <!--LockStatus-->
         <scene sceneID="SJw-xe-6Qa">
@@ -325,9 +328,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oKW-PV-8EJ">
-                                <rect key="frame" x="267" y="617" width="80" height="30"/>
+                                <rect key="frame" x="260" y="617" width="95" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Web Server"/>
+                                <state key="normal" title="Firebase Data"/>
                                 <connections>
                                     <segue destination="PdK-0P-9YE" kind="show" identifier="toWeb" id="bc4-bM-kAC"/>
                                 </connections>
@@ -378,7 +381,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wLB-mz-uzl">
-                                <rect key="frame" x="35" y="360" width="295" height="30"/>
+                                <rect key="frame" x="35" y="380" width="295" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -428,13 +431,16 @@
                         <outlet property="passwordField" destination="wLB-mz-uzl" id="nNU-Wy-9NB"/>
                         <outlet property="segmentControl" destination="QvI-lV-rcW" id="dJD-i1-V7P"/>
                         <segue destination="KeH-qv-ef0" kind="show" identifier="fromLoginToList" id="JCO-tT-Q9g"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="toHome2" id="gp5-j3-g6E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSl-WR-8oI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="vZs-Ul-gZu"/>
+                <swipeGestureRecognizer direction="right" id="vZs-Ul-gZu">
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toHome2" id="jQF-WE-vhp"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1132" y="170"/>
+            <point key="canvasLocation" x="-1807" y="327"/>
         </scene>
         <!--NewLock-->
         <scene sceneID="aiu-t0-jhG">
@@ -449,7 +455,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="1gy-oE-qjo">
-                                <rect key="frame" x="16" y="109" width="343" height="30"/>
+                                <rect key="frame" x="16" y="240" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -458,49 +464,8 @@
                                     <outlet property="delegate" destination="U0m-9E-IuI" id="IDd-sV-g3a"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fuy-AI-qa9">
-                                <rect key="frame" x="16" y="193" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" secureTextEntry="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="U0m-9E-IuI" id="DUu-fB-4Ie"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name of the lock: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTG-tl-hEW">
-                                <rect key="frame" x="16" y="80" width="139" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Passcode: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cF7-Kx-5ZL">
-                                <rect key="frame" x="16" y="170" width="84" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Re-enter passcode:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDg-zl-1ZH">
-                                <rect key="frame" x="16" y="252" width="151" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JfY-Hv-Maw">
-                                <rect key="frame" x="16" y="295" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" secureTextEntry="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="U0m-9E-IuI" id="CRG-3P-KvU"/>
-                                </connections>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ojS-Ov-IjD">
-                                <rect key="frame" x="151" y="589" width="72" height="30"/>
+                                <rect key="frame" x="151" y="380" width="72" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Finish"/>
@@ -509,6 +474,13 @@
                                     <segue destination="KeH-qv-ef0" kind="show" identifier="toList" id="hef-lw-dtN"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name of the lock: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTG-tl-hEW">
+                                <rect key="frame" x="16" y="201" width="139" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -518,8 +490,6 @@
                     </view>
                     <connections>
                         <outlet property="nameField" destination="1gy-oE-qjo" id="TKa-M5-AGI"/>
-                        <outlet property="pass1Field" destination="fuy-AI-qa9" id="bkf-51-luJ"/>
-                        <outlet property="pass2Field" destination="JfY-Hv-Maw" id="2p2-DI-T4K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cxm-df-KEa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -529,7 +499,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="12" y="170.46476761619192"/>
+            <point key="canvasLocation" x="-287" y="327"/>
         </scene>
         <!--LocksList-->
         <scene sceneID="aRa-kS-a20">
@@ -581,7 +551,6 @@
                                 <state key="normal" title="Pair new lock"/>
                                 <connections>
                                     <action selector="newLock:" destination="KeH-qv-ef0" eventType="touchUpInside" id="GGK-Xl-Eus"/>
-                                    <segue destination="U0m-9E-IuI" kind="show" id="b3a-lp-N37"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oMP-og-DfX">
@@ -602,6 +571,7 @@
                     <connections>
                         <outlet property="tableView" destination="0dz-Ul-QbA" id="yh6-6g-fL6"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="progSegue" id="eF3-SK-FVU"/>
+                        <segue destination="U0m-9E-IuI" kind="show" identifier="toNewView" id="SGF-sG-wVJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KZE-lb-Xvz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -639,6 +609,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="JCO-tT-Q9g"/>
-        <segue reference="gp5-j3-g6E"/>
+        <segue reference="jQF-WE-vhp"/>
     </inferredMetricsTieBreakers>
 </document>
