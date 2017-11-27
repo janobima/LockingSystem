@@ -23,6 +23,7 @@
 		5E7E162C1FAAB83F00548F40 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E162B1FAAB83F00548F40 /* GoogleService-Info.plist */; };
 		5E8524B11FABDA1B000E2005 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8524B01FABDA1B000E2005 /* SignupViewController.swift */; };
 		5E8524B41FAEAC08000E2005 /* LockingSystem.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5E8524B21FAEAC08000E2005 /* LockingSystem.xcdatamodeld */; };
+		5EB08F0D1FC67A6800BAAE94 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB08F0C1FC67A6800BAAE94 /* UserViewController.swift */; };
 		5EDFE3D81F7165FB00CB99E7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDFE3D71F7165FB00CB99E7 /* MapViewController.swift */; };
 		5EDFE3DA1F71661100CB99E7 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDFE3D91F71661100CB99E7 /* StatusViewController.swift */; };
 		5EDFE3DC1F716DC200CB99E7 /* NewLockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDFE3DB1F716DC200CB99E7 /* NewLockViewController.swift */; };
@@ -70,6 +71,7 @@
 		5E7E162B1FAAB83F00548F40 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5E8524B01FABDA1B000E2005 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		5E8524B31FAEAC08000E2005 /* LockingSystem.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LockingSystem.xcdatamodel; sourceTree = "<group>"; };
+		5EB08F0C1FC67A6800BAAE94 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		5EDFE3D71F7165FB00CB99E7 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		5EDFE3D91F71661100CB99E7 /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 		5EDFE3DB1F716DC200CB99E7 /* NewLockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewLockViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				5EDFE3DB1F716DC200CB99E7 /* NewLockViewController.swift */,
 				5EDFE3D91F71661100CB99E7 /* StatusViewController.swift */,
 				5EDFE3DF1F72A4B100CB99E7 /* ListViewController.swift */,
+				5EB08F0C1FC67A6800BAAE94 /* UserViewController.swift */,
 				5EDFE3D71F7165FB00CB99E7 /* MapViewController.swift */,
 				5E37EE711FA0ED6C005D31CA /* WebViewController.swift */,
 				5E8524B01FABDA1B000E2005 /* SignupViewController.swift */,
@@ -398,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E37EE721FA0ED6C005D31CA /* WebViewController.swift in Sources */,
+				5EB08F0D1FC67A6800BAAE94 /* UserViewController.swift in Sources */,
 				5E8524B11FABDA1B000E2005 /* SignupViewController.swift in Sources */,
 				5E7CCC261F6D54690001FD25 /* HomeViewController.swift in Sources */,
 				5E8524B41FAEAC08000E2005 /* LockingSystem.xcdatamodeld in Sources */,

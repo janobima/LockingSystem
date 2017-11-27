@@ -15,13 +15,15 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+   // @IBOutlet weak var usernameField: UITextField!
     
     /// This function will be triggered once the login button is clicked,
     /// It will handle the user authentication to Firebase using email & password.
     ///
     /// - Parameter sender: object from any type
     @IBAction func login(_ sender: Any) {
-        if emailField.text != "" && passwordField.text != "" {
+        if emailField.text != "" && passwordField.text != ""/* && usernameField.text != ""*/{
+            
             if segmentControl.selectedSegmentIndex == 0
             {
                 // login
@@ -29,6 +31,7 @@ class SignupViewController: UIViewController {
                     if (user != nil) // login successful
                     {
                         print("login successful")
+
                         self.performSegue(withIdentifier: "fromLoginToList", sender: self)
                     }
                     else
@@ -49,7 +52,13 @@ class SignupViewController: UIViewController {
                 Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
                     if (user != nil)// successful sign up
                     {
+                        Auth.auth().signIn(withEmail: self.emailField.text!,
+                                           password: self.passwordField.text!)
                         print("sign up successful")
+                        
+                        var ref: DatabaseReference!
+                        let uid = Auth.auth().currentUser?.uid
+                        ref = Database.database().reference().child("Users").childByAutoId()
                         self.performSegue(withIdentifier: "fromLoginToList", sender: self)
                     }
                     else
@@ -74,6 +83,14 @@ class SignupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    /*
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "fromLoginToList"{
+            let vc = segue.destination as! UINavigationController
+            let UserViewController = vc.topViewController as! UserViewController
+            UserViewController.setUsername(usrname:usernameField.text! )
+        }
+    }*/
 
 }
 extension UIViewController

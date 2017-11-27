@@ -32,28 +32,7 @@ class ListViewController: UIViewController,UITableViewDelegate , UITableViewData
             print("You are not logged in, therefore, you can not create a new lock!")
         }
     }
-    
-    /// This function will be called when the user clicks teh logout button.
-    /// It will check if the user is logged in, will sign out out from Firebase
-    /// and will print an error messages if any error has occured.
-    ///
-    /// - Parameter sender: any object
-    @IBAction func logout(_ sender: Any) {
-        if Auth.auth().currentUser?.email != nil {
-         let firebaseAuth = Auth.auth()
-         do {
-         try firebaseAuth.signOut()
-         } catch let signOutError as NSError {
-         print ("Error signing out: %@", signOutError)
-         }
-            print("You have logged out successfully!")
-            performSegue(withIdentifier: "progSegue", sender: nil)
-        }
-        else {
-            print("You can not log out.")
-        }
-    }
-    
+  
     /// This function will be called after the view is loaded.
     /// It will check if the user is logged in, and fetch the data from Firebase
     /// It will display the data in the table view.
@@ -62,11 +41,11 @@ class ListViewController: UIViewController,UITableViewDelegate , UITableViewData
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-
+        
         if Auth.auth().currentUser?.email != nil {
-            print ("You are logged in.")
-            ref = Database.database().reference()
-            databaseHandle = ref?.child("Posts").observe(.childAdded , with: { (snapshot) in
+            print ("You are an authenticated user.")
+            ref = Database.database().reference().child("Users").child((Auth.auth().currentUser?.uid)!)
+            databaseHandle = ref?.observe(.childAdded , with: { (snapshot) in
             // add snapshots data to the array
             let post = snapshot.value as? NSDictionary
             let name = post?["Name"] as? String
@@ -130,8 +109,9 @@ class ListViewController: UIViewController,UITableViewDelegate , UITableViewData
             // -------------------------------------------------------------------
             // delete the data from firebase
             var ref: DatabaseReference!
-            ref = Database.database().reference()
-            ref.child("Posts/"+myCurrentLock).removeValue()
+            ref = Database.database().reference().child("Users").child((Auth.auth().currentUser?.uid)!)
+
+            ref.child(myCurrentLock).removeValue()
             locksarr.remove(at: indexPath.row)
             self.tableView.reloadData()
 
@@ -171,12 +151,12 @@ extension UIViewController
     /// create a swipe gesture recognizer
     ///
     /// - Parameter swipe: UISwipeGestureRecognizer
-    func doSwipeHome(swipe: UISwipeGestureRecognizer)
+    func doSwipeUser(swipe: UISwipeGestureRecognizer)
     {
         switch swipe.direction.rawValue{
         case 2:
-            if (shouldPerformSegue(withIdentifier: "toHome",sender: self) == true)
-            { performSegue(withIdentifier: "toHome", sender: self) }
+            if (shouldPerformSegue(withIdentifier: "toUser",sender: self) == true)
+            { performSegue(withIdentifier: "toUser", sender: self) }
         default:
             break
         }
