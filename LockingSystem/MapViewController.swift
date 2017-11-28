@@ -36,13 +36,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         let currentLocation = CLLocation(latitude: lat!, longitude: long!)
         self.centerMapOnLocation(location:currentLocation)
         
-        let distance : CLLocationDistance = initialLocation.distance(from: currentLocation)/1000
-        if (distance > self.safeRegion)
-        {
-            print("outside safe zone!")
+        if ( self.isOutsideSafeZone(loc1: initialLocation,loc2: currentLocation) ){
             self.alarm1(AnyObject.self)
         }
-        print("distance = \(distance) km")
         
       //  let location1 = CLLocationCoordinate2DMake(41.296486,-72.9613023)
         let location1 = CLLocationCoordinate2DMake(lat!,long!)
@@ -51,6 +47,26 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         pin1.title = self.lockName!
         self.mapView.addAnnotation(pin1)
         })
+    }
+    
+    /// This function calculates the distance between the current and the initial locations
+    /// It checks whether the distance is larger than the safe zone 
+    ///
+    /// - Parameters:
+    ///   - loc1: initial location
+    ///   - loc2: current location
+    /// - Returns: true if current location is outside the defined safe zone, false otherwise
+    func isOutsideSafeZone(loc1: CLLocation, loc2: CLLocation ) -> Bool
+    {
+        let distance : CLLocationDistance = loc1.distance(from: loc2)/1000
+        print("distance = \(distance) km")
+        if (distance > self.safeRegion)
+        {
+            print("outside safe zone!")
+            return true
+        }
+        print("inside safe zone!")
+        return false
     }
     
     override func didReceiveMemoryWarning() {
@@ -105,7 +121,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         content.badge = 1
         content.sound = UNNotificationSound.default()
         content.categoryIdentifier = "myCategory"
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 7, repeats: false)
         // /*Will used later */let trigger = UNLocationNotificationTrigger(triggerWithRegion:region, repeats:false)
         let request = UNNotificationRequest(identifier: "Notification", content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: { error in })

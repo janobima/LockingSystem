@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '6081E0D839BDADD535F04CE37547E075'
+               BlueprintIdentifier = '0324CE7AEFE7C91EBB5E8F9CB5FCDF4C'
                BlueprintName = 'Pods-LockingSystem'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods-LockingSystem.framework'>

@@ -55,12 +55,40 @@ class StatusViewController: UIViewController{
         super.didReceiveMemoryWarning()
     }
 
+    /// A function to test the status of the lock
+    ///
+    /// - Parameter status: the current status of the lock "locked"/"unlocked"
+    /// - Returns: true if status = "locked, false otherwise
+    func isLocked(status: String) -> Bool
+    {
+        return status == "lock"
+    }
+    
+    /// A function to return the corresponding battery image of the current battery value
+    /// 0: Green Battery    1: Yellow Battery   2: Orange Battery   3:Red Battery
+    ///
+    /// - Parameter value: and integer that represents the current battery value
+    /// - Returns: the corresponding battery image from [0-3]
+    func batteryImage(value : Int) -> Int{
+        if ( value > 75)
+        {  return 0 }
+        else if (value > 50)
+        {  return 1 }
+        else if (value > 25)
+        {  return 2 }
+        else if (value > 0)
+        {  return 3 }
+        return 0
+    }
+    
+    /// This function reads the data from firebase each time the data is updated
+    /// It reflects the data into the UI components
     func readData()
     {
-    ref.child(uid!).child(catchedlock!).observe(DataEventType.value, with: { (snapshot) in
+        ref.child(uid!).child(catchedlock!).observe(DataEventType.value, with: { (snapshot) in
         let post = snapshot.value as? NSDictionary
         
-        if (post?["Status"] as? String == "lock"){
+        if ( self.isLocked(status: (post?["Status"] as? String)!) ){
             self.controlSwitch.setOn(false, animated: true)
         }
         else{
@@ -71,15 +99,7 @@ class StatusViewController: UIViewController{
         
         self.batteryLabel.text = String(describing: post?["Battery"] as? Int ?? 0)
         let batteryValue = Int(post?["Battery"] as? Int ?? 0)
-        
-        if ( batteryValue > 75)
-        {  self.picture.image = images[0] }
-        else if (batteryValue > 50)
-        {  self.picture.image = images[1] }
-        else if (batteryValue > 25)
-        {  self.picture.image = images[2] }
-        else if (batteryValue > 0)
-        {  self.picture.image = images[3] }
+        self.picture.image = images[ self.batteryImage(value:batteryValue) ]
         
         if (post?["Movement"] as? Bool == true)
         {

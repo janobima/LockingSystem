@@ -114,7 +114,6 @@ class ListViewController: UIViewController,UITableViewDelegate , UITableViewData
             ref.child(myCurrentLock).removeValue()
             locksarr.remove(at: indexPath.row)
             self.tableView.reloadData()
-
         }
     }
     

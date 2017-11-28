@@ -473,13 +473,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="jkw-0w-ltB"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="progSegue" id="dbY-mL-3zq"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="progSegue" id="dbY-mL-3zq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hOn-bG-8gW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="Tr7-1R-GWG">
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="toHome" id="bO6-ex-gSl"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" id="oFO-V8-tT7"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
@@ -605,7 +605,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="0dz-Ul-QbA" id="yh6-6g-fL6"/>
-                        <segue destination="U0m-9E-IuI" kind="show" identifier="toNewView" id="SGF-sG-wVJ"/>
+                        <segue destination="U0m-9E-IuI" kind="presentation" identifier="toNewView" id="SGF-sG-wVJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KZE-lb-Xvz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -658,7 +658,6 @@
         <!--Navigation Controller-->
         <scene sceneID="pr4-rJ-mMJ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gds-z0-bst" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AEn-1S-dQW" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qM5-4p-dQu">
@@ -670,6 +669,7 @@
                         <segue destination="1AR-K2-UTy" kind="relationship" relationship="rootViewController" id="qiI-VI-Ml6"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gds-z0-bst" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2179.1999999999998" y="-602.69865067466276"/>
         </scene>
@@ -678,10 +678,9 @@
         <image name="greenBattery.png" width="300" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JuD-C3-CVu"/>
-        <segue reference="TOZ-5p-xlH"/>
-        <segue reference="tSR-E1-P0c"/>
-        <segue reference="jss-Hg-MRa"/>
-        <segue reference="jQF-WE-vhp"/>
+        <segue reference="bfz-mF-6rm"/>
+        <segue reference="7QV-5s-meK"/>
+        <segue reference="aqI-FB-r68"/>
+        <segue reference="oFO-V8-tT7"/>
     </inferredMetricsTieBreakers>
 </document>

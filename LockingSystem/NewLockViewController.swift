@@ -99,6 +99,33 @@ class NewLockViewController: UIViewController ,UITextFieldDelegate{
         }))
         self.present(alert, animated: true, completion: nil)
     }
+    /*
+    func isExists(name: String )-> Bool
+    {
+        var exist = false
+        
+        // set the firebase reference
+        var ref: DatabaseReference!
+        let uid = Auth.auth().currentUser?.uid
+        ref = Database.database().reference().child("Users").child(uid!)
+        
+        ref.observeSingleEvent(of: .value  , with: { (snapshot) in
+            for child in snapshot.children {
+                let snap = child as! DataSnapshot
+                let key = snap.key
+                   // print("key = \(key)  name = \(name)")
+                    if (key == name)
+                    {
+                    print("already exists")
+                    exist = true
+                    break
+                    }
+            }
+        })
+        ref.removeAllObservers()
+        print(exist)
+        return exist
+    }*/
     
     /// show the alerts before performing the segue
     ///
@@ -115,8 +142,17 @@ class NewLockViewController: UIViewController ,UITextFieldDelegate{
                 createAlert(title: "Please enter a name!", message: "")
                 return false
             }
+           /* else if ( isExists(name: nameField.text!))
+            {
+                print("exists ")
+                createAlert(title: "The lock name already exists in your account!", message: "")
+                return false
+            }*/
             else
-            {  return true;  }
+            {
+                print("does not exist")
+                return true;
+            }
         }
         else
         { return true; }

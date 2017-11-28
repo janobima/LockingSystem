@@ -52,6 +52,12 @@ class UserViewController: UIViewController {
         }
     }
     
+    /// This function is triggered when the user clicks "change password" button
+    /// It triggers an alert controller to allow the user to input the new password
+    /// and gives the user the option to save/cancel
+    /// It also updates the password in firebase
+    ///
+    /// - Parameter sender: any object
     @IBAction func changePass(_ sender: Any) {
         let alert = UIAlertController(title: "Reset Password",
                                       message: "Type your new password",
@@ -59,13 +65,12 @@ class UserViewController: UIViewController {
         
         let saveAction = UIAlertAction(title: "Save",
                                        style: .default) { _ in
-                                        // 1
-                                        guard let textField = alert.textFields?.first,
-                                            let password = textField.text
-                                            else { return }
-                                        Auth.auth().currentUser?.updatePassword(to: password) { (error) in
-                            
-                                        }
+                // 1
+                guard let textField = alert.textFields?.first,
+                let password = textField.text
+                else { return }
+                Auth.auth().currentUser?.updatePassword(to: password) { (error) in
+            }
         }
         
         let cancelAction = UIAlertAction(title: "Cancel",
@@ -74,7 +79,6 @@ class UserViewController: UIViewController {
         alert.addTextField()
         alert.addAction(saveAction)
         alert.addAction(cancelAction)
-        
         present(alert, animated: true, completion: nil)
       
     }

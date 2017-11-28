@@ -9,8 +9,13 @@ target 'LockingSystem' do
 
   # Pods for LockingSystem
 
-  pod 'Firebase'
+  #pod 'Firebase'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
-
+  
+  target 'LockingSystemTests' do
+        inherit! :search_paths
+        pod 'Firebase'
+    end
+    
 end

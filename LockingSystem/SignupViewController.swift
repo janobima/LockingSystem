@@ -17,13 +17,28 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
    // @IBOutlet weak var usernameField: UITextField!
     
+    /// creating an alert view
+    ///
+    /// - Parameters:
+    ///   - title: title of the alert
+    ///   - message: message in the alert
+    func createAlert (title:String, message:String)
+    {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+            print ("OK button is pressed")
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+
     /// This function will be triggered once the login button is clicked,
     /// It will handle the user authentication to Firebase using email & password.
     ///
     /// - Parameter sender: object from any type
     @IBAction func login(_ sender: Any) {
-        if emailField.text != "" && passwordField.text != ""/* && usernameField.text != ""*/{
-            
+        if ( !(emailField.text?.isEmpty)! && !(passwordField.text?.isEmpty)! && isValidEmail(email: emailField.text!) )
+        {
             if segmentControl.selectedSegmentIndex == 0
             {
                 // login
@@ -38,6 +53,7 @@ class SignupViewController: UIViewController {
                     {
                         if let myError = error?.localizedDescription
                         {
+                            self.createAlert(title: myError, message: "")
                             print(myError)
                         }
                         else
@@ -91,6 +107,17 @@ class SignupViewController: UIViewController {
             UserViewController.setUsername(usrname:usernameField.text! )
         }
     }*/
+    
+    /// This function validate the email address by comparing it to the email format
+    ///
+    /// - Parameter email: the email address that was entered by the user
+    /// - Returns: true if valid email format, false otherwise
+    func isValidEmail(email: String) ->Bool
+    {
+        let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
+        return emailPredicate.evaluate(with: email)
+    }
 
 }
 extension UIViewController
