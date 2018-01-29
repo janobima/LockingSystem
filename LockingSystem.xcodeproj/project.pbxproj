@@ -24,6 +24,10 @@
 		5E7E162C1FAAB83F00548F40 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E162B1FAAB83F00548F40 /* GoogleService-Info.plist */; };
 		5E8524B11FABDA1B000E2005 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8524B01FABDA1B000E2005 /* SignupViewController.swift */; };
 		5E8524B41FAEAC08000E2005 /* LockingSystem.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5E8524B21FAEAC08000E2005 /* LockingSystem.xcdatamodeld */; };
+		5E86C1AA201CF917009E9BC5 /* 180ICON2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E86C1A9201CF917009E9BC5 /* 180ICON2.png */; };
+		5E86C1AC201CFD2B009E9BC5 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E86C1AB201CFD2A009E9BC5 /* background.png */; };
+		5E86C1AE201CFD2F009E9BC5 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E86C1AD201CFD2F009E9BC5 /* background2.png */; };
+		5E86C1B2201D6573009E9BC5 /* locked.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E86C1B1201D6573009E9BC5 /* locked.png */; };
 		5EB08F0D1FC67A6800BAAE94 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB08F0C1FC67A6800BAAE94 /* UserViewController.swift */; };
 		5EDFE3D81F7165FB00CB99E7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDFE3D71F7165FB00CB99E7 /* MapViewController.swift */; };
 		5EDFE3DA1F71661100CB99E7 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDFE3D91F71661100CB99E7 /* StatusViewController.swift */; };
@@ -72,6 +76,11 @@
 		5E7E162B1FAAB83F00548F40 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5E8524B01FABDA1B000E2005 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		5E8524B31FAEAC08000E2005 /* LockingSystem.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LockingSystem.xcdatamodel; sourceTree = "<group>"; };
+		5E86C1A9201CF917009E9BC5 /* 180ICON2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 180ICON2.png; sourceTree = "<group>"; };
+		5E86C1AB201CFD2A009E9BC5 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		5E86C1AD201CFD2F009E9BC5 /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
+		5E86C1B1201D6573009E9BC5 /* locked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locked.png; sourceTree = "<group>"; };
+		5E86C1B3201E28C8009E9BC5 /* definite.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = definite.m4a; sourceTree = "<group>"; };
 		5EB08F0C1FC67A6800BAAE94 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		5EDFE3D71F7165FB00CB99E7 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		5EDFE3D91F71661100CB99E7 /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
@@ -124,9 +133,14 @@
 		5E6CFEA11F7737B100A87FDA /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5E86C1B3201E28C8009E9BC5 /* definite.m4a */,
+				5E86C1AB201CFD2A009E9BC5 /* background.png */,
+				5E86C1AD201CFD2F009E9BC5 /* background2.png */,
+				5E86C1A9201CF917009E9BC5 /* 180ICON2.png */,
 				5E6CFEA31F7737D000A87FDA /* greenBattery.png */,
 				5E6CFEA41F7737D000A87FDA /* orangeBattery.png */,
 				5E6CFEA51F7737D000A87FDA /* redBattery.png */,
+				5E86C1B1201D6573009E9BC5 /* locked.png */,
 				5E6CFEA61F7737D000A87FDA /* yellowBattery.png */,
 			);
 			name = images;
@@ -331,7 +345,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E86C1AA201CF917009E9BC5 /* 180ICON2.png in Resources */,
+				5E86C1AE201CFD2F009E9BC5 /* background2.png in Resources */,
+				5E86C1AC201CFD2B009E9BC5 /* background.png in Resources */,
 				5E6CFEAA1F7737D000A87FDA /* redBattery.png in Resources */,
+				5E86C1B2201D6573009E9BC5 /* locked.png in Resources */,
 				5E7E162C1FAAB83F00548F40 /* GoogleService-Info.plist in Resources */,
 				5E7CCC311F6D54690001FD25 /* LaunchScreen.storyboard in Resources */,
 				5E6CFEAB1F7737D000A87FDA /* yellowBattery.png in Resources */,

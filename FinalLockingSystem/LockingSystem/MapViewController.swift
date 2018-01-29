@@ -25,8 +25,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         //UNH : 41.296486, -72.961302
-    ref.child(uid!).child(lockName!).observe(DataEventType.value, with: {
-        (snapshot) in
+    ref.child(uid!).child(lockName!).observe(DataEventType.value, with: { (snapshot) in
         let post = snapshot.value as? NSDictionary
        let lat = post?["Latitude"] as? Double
         let long = post?["Longitude"] as? Double
@@ -39,8 +38,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         if ( self.isOutsideSafeZone(loc1: initialLocation,loc2: currentLocation) ){
             self.alarm1(AnyObject.self)
-            print("alarming!!")
-        
         }
         
       //  let location1 = CLLocationCoordinate2DMake(41.296486,-72.9613023)
@@ -124,11 +121,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         content.badge = 1
         content.sound = UNNotificationSound.default()
         content.categoryIdentifier = "myCategory"
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 7, repeats: false)
         // /*Will used later */let trigger = UNLocationNotificationTrigger(triggerWithRegion:region, repeats:false)
         let request = UNNotificationRequest(identifier: "Notification", content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: { error in })
-        print("are  you heere?")
     }
     
     /// Add a response to the notification

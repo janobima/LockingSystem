@@ -143,7 +143,7 @@ class StatusViewController: UIViewController{
         content.title = "Alarming Condition!"
         content.body = "Your lock might been tampered with!"
         content.badge = 1
-        content.sound = UNNotificationSound.init(named: "definite.m4a")
+        content.sound = UNNotificationSound.default()
         content.categoryIdentifier = "myCategory"
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         let request = UNNotificationRequest(identifier: "Notification", content: content, trigger: trigger)
