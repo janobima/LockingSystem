@@ -14,11 +14,13 @@ import Firebase
 class StatusViewController: UIViewController{
     
     private let uid = Auth.auth().currentUser?.uid
-    private let ref = Database.database().reference().child("Users")
+   // private let ref = Database.database().reference().child("Users")
     private var catchedlock: String?
+    private var catchedIMEI: String?
 
     @IBOutlet weak var lockName: UILabel!
     @IBOutlet weak var controlSwitch: UISwitch!
+    private let ref = Database.database().reference().child("Locks")
 
     /// This is a setter function to set the name of the lock to send to this class.
     ///
@@ -27,6 +29,10 @@ class StatusViewController: UIViewController{
     {
         catchedlock = newLock
     }
+    func setcatchedIMEI (newLock: String)
+    {
+        catchedIMEI = newLock
+    }
     
     /// This function is called when the switch is toggled to change the status of the switch
     ///
@@ -34,13 +40,15 @@ class StatusViewController: UIViewController{
     @IBAction func lockSwitch(_ sender: Any) {
         if (controlSwitch.isOn==false)
         {
-            let newStatus = "unlock"
-            ref.child(uid!).child(catchedlock!+"/Status").setValue(newStatus)
+       //     let newStatus = "unlock"
+            //ref.child(uid!).child(catchedlock!+"/Status").setValue(newStatus)
+            ref.child(catchedIMEI!).child("Stat").setValue("1")
             controlSwitch.setOn(true, animated: true)
         }
         else {
-            let newStatus = "lock"
-            ref.child(uid!).child(catchedlock!+"/Status").setValue(newStatus)
+//            let newStatus = "lock"
+            //ref.child(uid!).child(catchedlock!+"/Status").setValue(newStatus)
+            ref.child(catchedIMEI!).child("Stat").setValue("0")
             controlSwitch.setOn(false, animated: true)
         }
     }
@@ -85,10 +93,13 @@ class StatusViewController: UIViewController{
     /// It reflects the data into the UI components
     func readData()
     {
-        ref.child(uid!).child(catchedlock!).observe(DataEventType.value, with: { (snapshot) in
+       // ref.child(uid!).child(catchedlock!).observe(DataEventType.value, with: { (snapshot) in
+        ref.child(catchedIMEI!).observe(DataEventType.value, with: { (snapshot) in
+       
         let post = snapshot.value as? NSDictionary
         
-        if ( self.isLocked(status: (post?["Status"] as? String)!) ){
+        //if ( self.isLocked(status: (post?["Status"] as? String)!) ){
+        if ( post?["Stat"] as? Bool == true ){
             self.controlSwitch.setOn(false, animated: true)
         }
         else{
@@ -97,11 +108,19 @@ class StatusViewController: UIViewController{
         
         let images = [UIImage(named: "greenBattery.png"), UIImage(named: "yellowBattery.png"),UIImage(named: "orangeBattery.png"),UIImage(named: "redBattery.png")]
         
-        self.batteryLabel.text = String(describing: post?["Battery"] as? Int ?? 0)
-        let batteryValue = Int(post?["Battery"] as? Int ?? 0)
-        self.picture.image = images[ self.batteryImage(value:batteryValue) ]
+        //self.batteryLabel.text = String(describing: post?["Battery"] as? Int ?? 0)
+            //text.toInt()
+        //self.batteryLabel.text = String(describing: post?["Bat"] as? Int ?? 0)
+            self.batteryLabel.text = String(describing: post?["Bat"] as! String)
         
-        if (post?["Movement"] as? Bool == true)
+            //let batteryValue = Int(post?["Battery"] as? Int ?? 0)
+        //let batteryValue = Int(post?["Bat"] as? Int ?? 0)
+            let batteryValue = Int(self.batteryLabel.text!)
+            
+            self.picture.image = images[ self.batteryImage(value:batteryValue!) ]
+        
+       // if (post?["Movement"] as? Bool == true)
+        if (post?["Tamp"] as? Bool == true)
         {
             self.alarm2(AnyObject.self)
         }
@@ -162,7 +181,15 @@ class StatusViewController: UIViewController{
             let vc = segue.destination as! UINavigationController
             let mapvc = vc.topViewController as! MapViewController
             mapvc.setLockName(newLock: catchedlock! )
+            mapvc.setIMEI(newLock: catchedIMEI! )
         }
+        if segue.identifier == "toLockSetting"{
+            let vc = segue.destination as! UINavigationController
+            let mapvc = vc.topViewController as! LockSettingViewController
+            mapvc.setLockName(newLock: catchedlock! )
+            mapvc.setLockIMEI(newLock: catchedIMEI! )
+        }
+        
     }
     
 }

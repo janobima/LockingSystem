@@ -17,7 +17,8 @@ class NewLockViewController: UIViewController ,UITextFieldDelegate{
 
     // outlets -------------------------------
     @IBOutlet weak var nameField: UITextField!
-
+    @IBOutlet weak var imeiField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.nameField.delegate = self
@@ -65,23 +66,7 @@ class NewLockViewController: UIViewController ,UITextFieldDelegate{
     @IBAction func finish(_ sender: Any) {
         if (shouldPerformSegue(withIdentifier: "toList",sender: self) == true)
         {
-            // --------------------------------------------------------------
-            // set the firebase reference
-            var ref: DatabaseReference!
-            let uid = Auth.auth().currentUser?.uid
-            ref = Database.database().reference().child("Users").child(uid!)
             
-            // create a new post and write it to firebase
-            let name = nameField.text!
-            let status = "Unlocked"
-            let battery = 100
-            let movement = false
-            let longitude = -72.9613023
-            let latitude = 41.296486
-            let post :[String : AnyObject] = ["Name" : name as AnyObject, "Status": status as AnyObject, "Battery":battery  as AnyObject,"Movement": movement as AnyObject,"Longitude": longitude as AnyObject, "Latitude":latitude as AnyObject ]
-           // ref.child("users/\(String(describing: uid))").child(nameField.text!).setValue(post)
-            ref.child(nameField.text!).setValue(post)
-
         }
     }
     
@@ -142,17 +127,38 @@ class NewLockViewController: UIViewController ,UITextFieldDelegate{
                 createAlert(title: "Please enter a name!", message: "")
                 return false
             }
-           /* else if ( isExists(name: nameField.text!))
+            if ((imeiField.text?.isEmpty)!)
             {
-                print("exists ")
-                createAlert(title: "The lock name already exists in your account!", message: "")
+                createAlert(title: "Please enter an IMEI#!", message: "")
                 return false
-            }*/
-            else
-            {
-                print("does not exist")
-                return true;
             }
+            // --------------------------------------------------------------
+            // set the firebase reference
+            var ref: DatabaseReference!
+            let uid = Auth.auth().currentUser?.uid
+            ref = Database.database().reference()
+            
+            // create a new post and write it to firebase
+            let name = nameField.text!
+            let imei = imeiField.text!
+            var flag = false ;
+            ref.child("Users").child(uid!).child("Locks").observeSingleEvent(of: .value, with: { (snapshot) in
+                if snapshot.hasChild(name){
+                    self.createAlert (title:"Error!", message:"The name is already used. Please re-try with a new name.")
+                    flag = false;
+                }
+                else {flag = true;}
+            })
+            ref.child("Locks").observeSingleEvent(of: .value, with: { (snapshot) in
+                if snapshot.hasChild(imei){
+                    ref.child("Users").child(uid!).child("Locks").child(name).child("IMEI").setValue(imei);
+                    flag = true;
+                }else{
+                    self.createAlert (title:"Error!", message:"The IMEI number that you have entered is not valid. Please re-try with a valid IMEI.")
+                    flag = false;
+                }
+            })
+            return flag;
         }
         else
         { return true; }

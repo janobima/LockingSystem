@@ -14,6 +14,7 @@ import FirebaseDatabase
 class ListViewController: UIViewController,UITableViewDelegate , UITableViewDataSource{
     //--------------------------------------------------
     var locksarr: [String] = []
+    var IMEIarr: [String] = []
     var ref: DatabaseReference!
     var databaseHandle: DatabaseHandle!
     //--------------------------------------------------
@@ -42,7 +43,7 @@ class ListViewController: UIViewController,UITableViewDelegate , UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         
-        if Auth.auth().currentUser?.email != nil {
+       /* if Auth.auth().currentUser?.email != nil {
             print ("You are an authenticated user.")
             ref = Database.database().reference().child("Users").child((Auth.auth().currentUser?.uid)!)
             databaseHandle = ref?.observe(.childAdded , with: { (snapshot) in
@@ -51,6 +52,29 @@ class ListViewController: UIViewController,UITableViewDelegate , UITableViewData
             let name = post?["Name"] as? String
             self.locksarr.insert(name! , at: 0)
             self.tableView.reloadData()
+            })
+        }*/
+       /* if Auth.auth().currentUser?.email != nil {
+            print ("You are an authenticated user.")
+            ref = Database.database().reference().child("Users").child((Auth.auth().currentUser?.uid)!).child("Locks")
+            databaseHandle = ref?.observe(.childAdded , with: { (snapshot) in
+                // add snapshots data to the array
+                let post = snapshot.value as? NSDictionary
+                let name = post?["Name"] as? String
+                self.locksarr.insert(name! , at: 0)
+                self.tableView.reloadData()
+            })
+        }*/
+        if Auth.auth().currentUser?.email != nil {
+            print ("You are an authenticated user.")
+            ref = Database.database().reference().child("Users").child((Auth.auth().currentUser?.uid)!).child("Locks")
+            databaseHandle = ref?.observe(.childAdded , with: { (snapshot) in
+                // add snapshots data to the array
+                let name = snapshot.key as String// as? NSDictionary
+                let post = snapshot.value as? NSDictionary
+                self.locksarr.insert(name , at: 0)
+                self.IMEIarr.insert(post?["IMEI"] as! String , at: 0)
+                self.tableView.reloadData()
             })
         }
         else
@@ -82,7 +106,7 @@ class ListViewController: UIViewController,UITableViewDelegate , UITableViewData
         return locksarr.count
     }
     
-    
+  
     /// Set the cells feilds in the table view to the data in the locks array.
     ///
     /// - Parameters:
@@ -109,7 +133,7 @@ class ListViewController: UIViewController,UITableViewDelegate , UITableViewData
             // -------------------------------------------------------------------
             // delete the data from firebase
             var ref: DatabaseReference!
-            ref = Database.database().reference().child("Users").child((Auth.auth().currentUser?.uid)!)
+            ref = Database.database().reference().child("Users").child((Auth.auth().currentUser?.uid)!).child("Locks")
 
             ref.child(myCurrentLock).removeValue()
             locksarr.remove(at: indexPath.row)
@@ -140,6 +164,7 @@ class ListViewController: UIViewController,UITableViewDelegate , UITableViewData
             if let indexpath = self.tableView.indexPathForSelectedRow
             {
                 StatusViewController.setCatchedLock(newLock: locksarr[indexpath.row])
+                StatusViewController.setcatchedIMEI(newLock: IMEIarr[indexpath.row])
             }
         }
     }

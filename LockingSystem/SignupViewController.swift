@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class SignupViewController: UIViewController {
+class SignupViewController: UIViewController  ,UITextFieldDelegate {
     
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var emailField: UITextField!
@@ -72,9 +72,9 @@ class SignupViewController: UIViewController {
                                            password: self.passwordField.text!)
                         print("sign up successful")
                         
-                        var ref: DatabaseReference!
+                        let ref: DatabaseReference!
                         let uid = Auth.auth().currentUser?.uid
-                        ref = Database.database().reference().child("Users").childByAutoId()
+                        ref = Database.database().reference().child("Users").child(uid!)
                         self.performSegue(withIdentifier: "fromLoginToList", sender: self)
                     }
                     else
@@ -98,6 +98,22 @@ class SignupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.emailField.delegate = self
+        self.passwordField.delegate = self;        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self , action: #selector(self.dismissKeyboard)))
+    }
+    
+    /// Dismiss the keyboard
+    ///
+    /// - Parameter textField: UITextField being selected
+    /// - Returns: True/False
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        dismissKeyboard()
+        return true
+    }
+    @objc func dismissKeyboard() {
+        emailField.resignFirstResponder()
+        passwordField.resignFirstResponder()
     }
     /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

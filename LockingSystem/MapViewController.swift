@@ -17,34 +17,37 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     private let safeRegion = 10.0
     private let uid = Auth.auth().currentUser?.uid
-    private let ref = Database.database().reference().child("Users")
+   // private let ref = Database.database().reference().child("Users")
+    private let ref = Database.database().reference().child("Locks")
     private var lockName: String?
+    private var catchedIMEI: String?
 
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //UNH : 41.296486, -72.961302
-    ref.child(uid!).child(lockName!).observe(DataEventType.value, with: {
-        (snapshot) in
+        //ref.child(uid!).child(lockName!).observe(DataEventType.value, with: {
+        
+        ref.child(catchedIMEI!).observe(DataEventType.value, with: {(snapshot) in
         let post = snapshot.value as? NSDictionary
-       let lat = post?["Latitude"] as? Double
-        let long = post?["Longitude"] as? Double
+            
+            let lat = Double ( String(describing: post?["Lat"] as! String) ) //Double ( (post?["Lat"] as? Double)!)
+            let long = Double ( String(describing: post?["Lon"] as! String) ) //Double ( (post?["Lon"] as? Double)!)
     
         self.mapView.removeAnnotations(self.mapView.annotations)
 
         let initialLocation = CLLocation(latitude: 41.296486, longitude: -72.9613023)
-        let currentLocation = CLLocation(latitude: lat!, longitude: long!)
+            let currentLocation = CLLocation(latitude: lat!, longitude: long!)
         self.centerMapOnLocation(location:currentLocation)
         
         if ( self.isOutsideSafeZone(loc1: initialLocation,loc2: currentLocation) ){
             self.alarm1(AnyObject.self)
             print("alarming!!")
-        
         }
         
       //  let location1 = CLLocationCoordinate2DMake(41.296486,-72.9613023)
-        let location1 = CLLocationCoordinate2DMake(lat!,long!)
+            let location1 = CLLocationCoordinate2DMake(lat!,long!)
         let pin1 = MKPointAnnotation()
         pin1.coordinate = location1
         pin1.title = self.lockName!
@@ -83,6 +86,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     {
         lockName = newLock
     }
+    func setIMEI (newLock: String)
+    {
+        catchedIMEI = newLock
+    }
     
     /// Set the center and region of the map
     ///
@@ -105,6 +112,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             let vc = segue.destination as! UINavigationController
             let StatusViewController = vc.topViewController as! StatusViewController
             StatusViewController.setCatchedLock(newLock: lockName!)
+            StatusViewController.setcatchedIMEI(newLock: catchedIMEI!)
+
         }
     }
     
@@ -122,7 +131,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         content.title = "Alarming Condition!"
         content.body = "Your lock got outside the safe zone!"
         content.badge = 1
-        content.sound = UNNotificationSound.default()
+        content.sound = UNNotificationSound.init(named: "definite.m4a")
         content.categoryIdentifier = "myCategory"
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         // /*Will used later */let trigger = UNLocationNotificationTrigger(triggerWithRegion:region, repeats:false)
